@@ -1,6 +1,7 @@
 from adventurelib import *
 
 pockets = []
+killcount = 0
 
 @when ("i")
 def inventory():
@@ -105,7 +106,7 @@ while menu_input != "A" and menu_input != "B":
         print(f"\n{pockets}")
     else:
         print("\nThis is not an option.")
-    menu("A- ", "B- ")
+    menu("A- approach", "B- do not approach")
 if menu_input == "A":
     say("""
         He growls as you come close, ears twitching, tail slightly tucked. He knows what you are, and he is ashamed of it. 
@@ -140,7 +141,7 @@ while menu_input != "A" and menu_input != "B":
         print(f"\n{pockets}")
     else:
         print("\nThis is not an option.")
-    menu("A- ", "B- ")
+    menu("A- attack", "B- approach gently")
 if menu_input == "A":
     say("""
         You are swift this time. You know how this goes. [fight] You kick your mother's crumpled body aside. 
@@ -182,10 +183,253 @@ while menu_input != "A" and menu_input != "B":
         print(f"\n{pockets}")
     else:
         print("\nThis is not an option.")
-    menu("A- ", "B- ")
+    menu("A- go left", "B- go right")
 if menu_input == "A":
+    global path_choice
+    path_choice = "left"
+    say("""
+        You step towards the scent of viscera. Pressing forward along the leftward path, the stench becoming unbearable, 
+        you find yourself ankle-deep in bloodred puddles that reflect your flame, inconsequential to the blindness of your sleep. 
+        As your trembling legs ambulate, you stumble over something you cannot see. This dark thing begins to shift, 
+        seemingly awoken by your stepping on it, and arranges itself upright. Towering over you, 
+        this wall of something deeper than black begins to edge forward, almost consuming the bloodied ground in front of you.  
+    """)
     
+    menu("A- fight", "B- flight", "C- freeze")
+    while menu_input != "A" and menu_input != "B" and menu_input != "C":
+        if menu_input == "i":
+            print(f"\n{pockets}")
+        else:
+            print("\nThis is not an option.")
+        menu("A- fight", "B- flight", "C- freeze")
+    if menu_input == "A":
+        print("filler")
+        #black thing fight
+    elif menu_input == "B":
+        say("""
+            You scramble backwards, longing for the pressing comfort of the cavern you began in. 
+            Gripping rock and bone and gore to aid your escape, you find yourself widening the distance between you and the dark thing. 
+            You continue to sprint, to climb, to crawl, only to find yourself suddenly consumed by the void that is beyond darkness. 
+            Suffocating, scraping invisible appendages rip you in different directions, almost eating you whole. You remain asleep.
+        """)
+        #game over
+    elif menu_input == "C":
+        say("""A deep, ancient terror unfurls inside you starting at the pit of your stomach. You are rooted in place, 
+            not able to fight nor run nor even scream. As the dark thing inches towards you, 
+            you lose your sense of up and down and left and right, this mass is not defined by direction. 
+            You find yourself suddenly consumed by the void that is beyond darkness. Suffocating, 
+            scraping invisible appendages rip you in different directions, almost eating you whole. You remain asleep. 
+        """)
+        #game over
+
+    say("""
+        Wiping the oozing gore of the dark thing from your body, you begin to move. Shaken by the conflict, 
+        you consider curling up and lying in the damp stench of the dead and capitulating to the dread. But you can't stop now. 
+        With your latest murder you felt another cord of the rope connecting you to humanity snap, and you relished it. It felt... 
+        exciting. But you are still asleep. Reflecting on this feeling, you walk further forward, hunting. 
+        You find your next brush with death in the form of a great bear-like beast, protecting its young. 
+        As you stride towards the family, stomping through the blood-puddles, you begin to pause.  
+    """)
+
+    menu("A- fight", "B- atone")
+    while menu_input != "A" and menu_input != "B":
+        if menu_input == "i":
+            print(f"\n{pockets}")
+        else:
+            print("\nThis is not an option.")
+        menu("A- fight", "B- atone")
+    if menu_input == "A":
+        print("filler")
+        #fight
+    elif menu_input == "B":
+        say("""The beast swivels its head, recognizing the threat you pose. You paused for too long. It pounces forward, 
+            standing between its young and you, growling. You try to back down, to signal for peace, but you cannot undo this. 
+            The beast leaps onto you, biting chunks from your flesh and mauling you asunder with its paws. 
+            The final blow comes with a powerful tear, and the creature severs your head from your torso. In your final moments, 
+            you see the younger beasts dragging your body towards their den. You remain asleep.
+        """)
+        #game over
+    else:
+        print("how")
+
+    say("""
+        The body of the beast falls to the ground, gutted and torn. With it, you feel yet another part of your humanity fall away, 
+        but with it comes no more pleasure. Instead, the horror of your choices begins to set in. Examining your surroundings closer, 
+        you see that the bear's guts are not the only ones that coat the ground. Bones and organs are all around you, 
+        glistening in your torchlight, and the blood has stained the skin on your legs. You are asleep. A deep repulsion washes over you, 
+        and you begin to vomit. Buckling over, you heave volume after volume of gore from your stomach that couldn't possibly 
+        have been truly inside you. In your wretched retching, you feel a clammy hand pat at your back.  
+    """)
+
+    menu("A- execution", "B- stasis")
+    while menu_input != "A" and menu_input != "B":
+        if menu_input == "i":
+            print(f"\n{pockets}")
+        else:
+            print("\nThis is not an option.")
+        menu("A- execution", "B- stasis")
+    if menu_input == "A":
+        print("filler")
+        #self fight
+    elif menu_input == "B":
+        say("""
+            The cold limb caresses you, and you whip around to find its owner. It belongs to someone that looks just like you. 
+            Every feature, strand of hair, and blemish on your form is mirrored on this person'. You prepare to run for your life, 
+            but they cling onto you, embracing you tightly. Their form begins to meld to yours, 
+            skin grafting and rearranging until fully combined with your own. You are now an amalgamation of two versions of yourself, 
+            limbs and eyes on your body without a line of reason or axis of symmetry. When you attempt to scream, 
+            you find the choice of which mouth to use overwhelming. It takes what feels like years to learn how to walk again, 
+            how to process the sensory information flooding your brain. You are asleep. But eventually, 
+            you find yourself able to move about how you did before, and you gain a sense of bolstered confidence, 
+            as if you have become stronger. You continue forward, more determined than before.
+        """)
+    else:
+        print("how")
 elif menu_input == "B":
+    path_choice = "right"
+    say(f"""
+        You step towards the black fog. Continuing forward, you find yourself surrounded by it. Tendrils of the stuff arc towards you, 
+        almost reaching out. You reach out your arm in response, and it wraps around you. It's in your nose, your mouth, your lungs, 
+        your eyes, suffocating you. You are asleep. You can't breathe, scream, or see, and when the burning in your chest stops, 
+        you find yourself blinded. Whether your torch went out or the fog stole your sight from you, 
+        you find it impossible to make out your surroundings. You begin to stumble, 
+        trying to stay balanced on a surface that you think is the ground, but your spatial sense have failed you. 
+        You fall to the ground, flailing in the darkness. As you lie, unable to move, something begins to materialize in your vision, 
+        something you can finally see. A pair of eyes blink back at you. You recognize it to be Friend. 
+        The tendrils begin to release their iron grip on you, allowing you to breathe again. 
+
+        Friend: 'Nice to see you again, {name}. I see you're close to waking up. I know what lies in the future of your path, 
+        and you do too. We both know that you're not strong enough as you are. We both know what you are. So, I have a proposal for you. 
+        I can steal the rest of your humanity, if you're able to pass my own test... or you could just walk away now.' Friend smiles. 
+        'I think we both know there's really only one option, unless you're interested in meeting again. 
+        I advise you break the cycle. You need to wake up.' 
+    """)
+
+    menu("A- wake up", "B- stay asleep")
+    while menu_input != "A" and menu_input != "B":
+        if menu_input == "i":
+            print(f"\n{pockets}")
+        else:
+            print("\nThis is not an option.")
+        menu("A- wake up", "B- stay asleep")
+    if menu_input == "A":
+        say(f"""
+            Friend: 'Alright then. I'll grant you the power you need to finally move on to the next life, but only on one condition. 
+            You must tell me, honestly, who you are. If I find you dishonest, you'll have to try again. From the beginning. 
+            So, who is {name}?” 
+        """)
+
+        menu("A- A good person. No matter how many mistakes I've made, I've still tried my hardest my whole life. I love those that surround me, and I make sure to show them that. I am a good person.", 
+             "B- A flawed person. I try to do the best I can, but inside me lays dormant an anger that can't be contained forever, the scared anger of a wounded animal. I am a flawed person.", 
+             "C-  I don't know who I am. I have only lived this life once through, not enough to know every part of myself. Ive made no impact on the world, nothing changes because of my existence. I am nobody at all.")
+        while menu_input != "A" and menu_input != "B" and menu_input != "C":
+            if menu_input == "i":
+                print(f"\n{pockets}")
+            else:
+                print("\nThis is not an option.")
+            menu("A- A good person. No matter how many mistakes I've made, I've still tried my hardest my whole life. I love those that surround me, and I make sure to show them that. I am a good person.", 
+                 "B- A flawed person. I try to do the best I can, but inside me lays dormant an anger that can't be contained forever, the scared anger of a wounded animal. I am a flawed person.", 
+                 "C-  I don't know who I am. I have only lived this life once through, not enough to know every part of myself. Ive made no impact on the world, nothing changes because of my existence. I am nobody at all.")
+        if menu_input == "A":
+            say("""
+                Friend: 'You're wrong, and you know it. Would the dreamscape of a 'good person' look like this?' 
+                The tendrils restrict around you again, this time burning you even more. 
+                It feels like every orifice in your body is stuffed with the thick, unbreathable fog, 
+                and what little you could see begins to fade away. You remain asleep.
+            """)
+            #game over
+        elif menu_input == "B":
+            say("""
+                Friend: 'Correct. I'm glad that you're finally starting to wake up.' The tendrils once again impale you, 
+                this time through your chest. A searing pain arcs through every vein, liquid fire coursing through you. 
+                When the searing finally subsides, you feel as if the burning had stolen what was left of your humanity. 
+                A bestial roar bubbles up in your chest, and as it escapes you the fog begins to dissipate. You stumble your way to your feet, 
+                and see your torch, still flickering on the ground. After picking it up, you continue on the dimly lit path, 
+                slightly more determined than before.
+            """)
+        elif menu_input == "C":
+            say("""
+                Friend: 'Don't lie to yourself. Positive or negative, we all make change in our own reality. It seems you need to go back, 
+                and pay better attention to your life this time around.' The tendrils restrict around you again, 
+                this time burning you even more. It feels like every orifice in your body is stuffed with the thick, unbreathable fog, 
+                and what little you could see begins to fade away. You remain asleep.
+            """)
+            #game over
+        else:
+            print("how")
+    elif menu_input == "B":
+        say("""
+            Friend: 'If you say so.' The tendrils restrict around you again, this time burning you even more. 
+            It feels like every orifice in your body is stuffed with the thick, unbreathable fog, 
+            and what little you could see begins to fade away.
+        """)
+        #game over
+    else:
+        print("how")
+else:
+    print("how")
+
+say("""
+    Traveling further forward, you find yourself in a lighter domain, the ground covered in various glistening animal skulls. 
+    On the nearly polished surfaces you see hundreds, thousands, millions of reflections of yourself. 
+    Two great ivory pillars tower on either side of an equally huge causeway over a raging, wine-dark river. 
+    Above the gate at the end of the causeway hangs a gigantic granite block with the symbol of Lilith inscribed on it. 
+    You feel awe overtake you, causing you to pause in your movement.  
+""")
+
+menu("A- stop here", "B- press forward")
+while menu_input != "A" and menu_input != "B":
+    if menu_input == "i":
+        print(f"\n{pockets}")
+    else:
+        print("\nThis is not an option.")
+    menu("A- stop here", "B- press forward")
+if menu_input == "A":
+    say("""
+        The awe has filled every fiber in your body. Heart-taking, heart-stopping, life-taking awe. You find yourself rooted to the ground, 
+        completely unable to move. As you struggle harder against your stasis, the awe that fills you is replaced with terror. Everything is your fault, 
+        and nothing will change. Despite your efforts, you remain asleep.
+    """)
+    #game over
+elif menu_input == "B":
+    print("You are moving on. There is no going back. There is no changing the choices you've made.")
+else:
+    print("how")
+
+if killcount == 0:
+    say("""
+        You slowly manage to move one leg forward. Then another. Step after step, you slowly make your way to the massive pillars, gaining speed as you go. 
+        Before you know it, you are sprinting. You don't know why. You are so close to waking up. As you reach the base of the pillars, your surroundings suddenly disappear. 
+        You are in pure, dark, void. You can see nothing. You wave your hands in front of your face to test if you can see anything at all, confused. 
+        Nothing reveals itself to you. This darkness is unlike the others that you have encountered, it is not suffocating. It is pure emptiness. 
+        You are unable to move, unable to see, unable to sense anything other than the beat of your own heart. And it will stay that way, forever. You remain asleep.
+    """)
+    #game over
+elif killcount >= 0 and killcount <= 4 and path_choice == "left":
+    say("""
+        You slowly manage to move one leg forward. Then another. Step after step, you slowly make your way to the massive pillars, gaining speed as you go. 
+        Before you know it, you are sprinting. You don't know why. You are so close to waking up. As you reach the base of the pillars, your surroundings suddenly disappear. 
+        You are in pure, dark, void. You can see nothing. You wave your hands in front of your face to test if you can see anything at all, confused. 
+        Your stomach falls as you see your fingers covered in blood. You feel the weight of your mistakes hanging from your neck. Your choices flash before your eyes. 
+        You are a killer, but not enough of one. You remain asleep.
+    """)
+    #game over
+elif killcount >= 0 and killcount <= 4 and path_choice == "right":
+    say("""
+        You slowly manage to move one leg forward. Then another. Step after step, you slowly make your way to the massive pillars, gaining speed as you go. Before you know it, 
+        you are sprinting. You don't know why. You are so close to waking up. As you reach the base of the pillars, your surroundings suddenly disappear. You are in pure, dark, 
+        void. You can see nothing. You wave your hands in front of your face to test if you can see anything at all, confused. 
+        Your hand appears to be fractured and refracted throughout your vision hundreds, thousands, millions of times. Your head hurts. You forget who you are. 
+        You forget where you are. Why did you end up here? The splitting headache seems to cave your skull in, crushing your brain. You see yourself, floating in the void, 
+        iterated infinite times. Your choices flash before your eyes. You aren't strong enough to be here. You remain asleep.
+    """)
+    #game over
+elif killcount >= 0 and killcount <= 4 and "Lilith's flower" in pockets:
+    print("filler")
+    #lilith fight
+elif killcount >= 4:
+    print("filler")
+    #lilith fight
 
 start()
 
