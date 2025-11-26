@@ -1,6 +1,7 @@
 from adventurelib import *
 
-pockets = ["hello"]
+pockets = []
+menu_input = ""
 
 @when ("i")
 def inventory():
@@ -12,9 +13,11 @@ def take(thing):
     print(f"You take the {thing}.")
 
 def menu(*args):
+    global menu_input
     print("\ni - inventory")
     for arg in args:
         print(f"{arg}")
+    menu_input = input()
 
 print("A voice rings out from the blinding void.\nI hope you're prepared.\n")
 
@@ -30,6 +33,18 @@ say(f"""
     You are asleep. 
 """)
 
+menu("A- look around", "B- shut your eyes")
+while menu_input != "A" and menu_input != "B" and menu_input != "i":
+    print("\nThis is not an option.")
+    menu("A- look around", "B- shut your eyes")
+if menu_input == "A":
+    print("you look around") #expand
+elif menu_input == "B":
+    print("you shut your eyes") #expand
+elif menu_input == "i":
+    print(pockets)
+else: 
+    print("how")
 
 start()
 
