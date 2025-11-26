@@ -1,7 +1,6 @@
 from adventurelib import *
 
 pockets = []
-menu_input = ""
 
 @when ("i")
 def inventory():
@@ -10,7 +9,7 @@ def inventory():
 @when ("take THING")
 def take(thing):
     pockets.append(thing)
-    print(f"You take the {thing}.")
+    print(f"\nYou take {thing}.")
 
 def menu(*args):
     global menu_input
@@ -76,7 +75,7 @@ else:
     print("how")
 
 print(f"\nFriend: 'Welcome back, {name}. Back so soon?")
-menu("A- Welcome back? Have we met?", "I am still asleep")
+menu("A- Welcome back? Have we met?", "B- I am still asleep")
 while menu_input != "A" and menu_input != "B":
     if menu_input == "i":
         print(f"\n{pockets}")
@@ -99,6 +98,94 @@ say("""
     You can only see the torchlight gleaming off the rocks around you, blinding if you look too close. Further down the tunnel, 
     you begin to hear again: footsteps. footsteps you recognize. Not your own. Your father's.
 """)
+
+menu("A- approach", "B- do not approach")
+while menu_input != "A" and menu_input != "B":
+    if menu_input == "i":
+        print(f"\n{pockets}")
+    else:
+        print("\nThis is not an option.")
+    menu("A- ", "B- ")
+if menu_input == "A":
+    say("""
+        He growls as you come close, ears twitching, tail slightly tucked. He knows what you are, and he is ashamed of it. 
+        You are human. You are asleep. He will make you animal if it's the last thing he does.
+    """)
+elif menu_input == "B":
+    say("""
+        You crouch, and stay back, wary of the animal in front of you. As you lower yourself, he approaches you, 
+        a longing in his eyes and a warning in his throat. You are asleep, You are human, and he hates it. He attacks you, 
+        teeth ripping flesh off bone, mercilessly unmaking you. You remain asleep.
+    """)
+    #game over
+else:
+    print("how")
+
+#fight with father 
+
+say("""
+    As you deliver the final blow to your father's bloodied form, dropping your torch to the ground, 
+    you feel part of your humanity slipping away from you. You reach for it, but you cannot see with the torch behind you. 
+    You cannot regain this humanity. You know what you are. You are asleep. Your father bleeds on the shining crystals, 
+    staining the mirrors of the flickering torch. You press on against the darkness. You will not mourn. 
+    After walking for what seems like forever and no time at all, you find yourself out of the crystal tunnel, emerging into a forest. 
+    Deep greens fill your vision, amorphous clumps of leaf and limb occupy your surroundings, 
+    and the sound of a river in the distance finds your ears. Someone with light brown fur presents themself in front of you, 
+    and you recognize it to be your mother.  
+""")
+
+menu("A- attack", "B- approach gently")
+while menu_input != "A" and menu_input != "B":
+    if menu_input == "i":
+        print(f"\n{pockets}")
+    else:
+        print("\nThis is not an option.")
+    menu("A- ", "B- ")
+if menu_input == "A":
+    say("""
+        You are swift this time. You know how this goes. [fight] You kick your mother's crumpled body aside. 
+        Another piece of your humanity is gone, and the absence is intoxicating. But you remain asleep.
+    """)
+elif menu_input == "B":
+    say("""
+        You approach your mother with your hand out for her to smell, and she nuzzles you. In her eyes is a sadness, 
+        and you know that she, too, wishes you were other than that which you are. You are still asleep. She kneels at your feet. 
+        Suddenly, she begins to wither, her skin melting first, revealing a ribcage sheltering a crumbling violet, petals drooping. 
+        Eventually, her bones crumble too, leaving only the flower behind.  
+    """)
+    menu("A- take flower", "B- leave it")
+    while menu_input != "A" and menu_input != "B":
+        if menu_input == "i":
+            print(f"\n{pockets}")
+        else:
+            print("\nThis is not an option.")
+        menu("A- ", "B- ")
+    if menu_input == "A":
+        take("Lilith's flower")
+    elif menu_input == "B":
+        print("You leave it on the ground.")
+    else:
+        print("how")
+else:
+    print("how")
+
+say("""
+    Striding forward past your mother's once physical form, your attention is called back to the path you walk. 
+    Looking forward, you can make out a fork in the road. To your left, the path becomes blood red, and the stench of rot wafts forth. 
+    You are asleep. To your right, the path continues, but the dwindling light provided by your torch fails to unveil anything more. 
+    A fog creeps into your small circle of visibility from the darkness.  
+""")
+
+menu("A- go left", "B- go right")
+while menu_input != "A" and menu_input != "B":
+    if menu_input == "i":
+        print(f"\n{pockets}")
+    else:
+        print("\nThis is not an option.")
+    menu("A- ", "B- ")
+if menu_input == "A":
+    
+elif menu_input == "B":
 
 start()
 
