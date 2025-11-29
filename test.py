@@ -1,23 +1,11 @@
-def menu(*args):
-    global menu_input
-    print("\ni - inventory")
-    for arg in args:
-        print(f"{arg}")
-    menu_input = input()
+from adventurelib import *
+import time 
 
-pockets = []
+def talk(phrase):
+    time.sleep(1)
+    say(f"""
+        \n{phrase}
+    """)
 
-menu("A- ", "B- ")
-while menu_input != "A" and menu_input != "B":
-    if menu_input == "i":
-        print(f"\n{pockets}")
-    else:
-        print("\nThis is not an option.")
-    menu("A- ", "B- ")
-if menu_input == "A":
-    
-elif menu_input == "B":
-
-else:
-    print("how")
+talk("Friend's eyes disappear, and you are left with no memory of their voice. You are asleep. Or of their existence. You press on against the darkness, passing into the corridor of gems. What small amount of sound existed in the main cavern is now gone, and it is entirely silent. The silence is suffocating. You can’t even hear your own footsteps. You can only see the torchlight gleaming off the rocks around you, blinding if you look too close. Further down the tunnel, you begin to hear again: footsteps. Not your own. Your father's.  ")
 
