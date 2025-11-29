@@ -1,8 +1,10 @@
 from adventurelib import *
 
-def menu(*args):
-    global menu_input
-    print("\ni - inventory")
-    for arg in args:
-        print(f"{arg}")
-    menu_input = input()
+def game_start():
+    print("************************************************************************************************************")
+
+def game_over():
+    print("\nGAME OVER")
+    game_start()
+
+game_over()

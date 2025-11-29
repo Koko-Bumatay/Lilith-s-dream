@@ -19,6 +19,15 @@ def menu(*args):
         print(f"{arg}")
     menu_input = input()
 
+def game_start():
+    print("************************************************************************************************************")
+
+def game_over():
+    print("\nGAME OVER")
+    game_start()
+
+game_start()
+
 print("A voice rings out from the blinding void.\nI hope you're prepared.\n")
 
 name = input("What is your name?")
@@ -69,7 +78,7 @@ elif menu_input == "B":
         for i in range (30):
             print("You are already asleep.You are already asleep.You are already asleep.")
             #wait for a sec
-        #game over
+        game_over()
     else:
         print("how")
 else: 
@@ -118,7 +127,7 @@ elif menu_input == "B":
         a longing in his eyes and a warning in his throat. You are asleep, You are human, and he hates it. He attacks you, 
         teeth ripping flesh off bone, mercilessly unmaking you. You remain asleep.
     """)
-    #game over
+    game_over()
 else:
     print("how")
 
@@ -396,7 +405,7 @@ elif menu_input == "B":
 else:
     print("how")
 
-if killcount == 0:
+if killcount == 1 and "Lilith's flower" not in pockets:
     say("""
         You slowly manage to move one leg forward. Then another. Step after step, you slowly make your way to the massive pillars, gaining speed as you go. 
         Before you know it, you are sprinting. You don't know why. You are so close to waking up. As you reach the base of the pillars, your surroundings suddenly disappear. 
@@ -430,6 +439,8 @@ elif killcount >= 0 and killcount <= 4 and "Lilith's flower" in pockets:
 elif killcount >= 4:
     print("filler")
     #lilith fight
+
+game_start()
 
 start()
 
