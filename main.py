@@ -7,7 +7,6 @@ killcount = 0
 def pause():
     time.sleep(1)
 
-@when ("i")
 def inventory():
     pause()
     print(pockets)
