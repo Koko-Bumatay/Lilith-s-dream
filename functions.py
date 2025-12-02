@@ -7,4 +7,6 @@ def game_over():
     print("\nGAME OVER")
     game_start()
 
-game_over()
+pockets = {"Knife": 2, "Sheild": 2, "Apple": 3}
+glo
+print(f"\nYou raise your sheild. If he attacks, this will block " + str(["Sheild"]) + "damage.")
