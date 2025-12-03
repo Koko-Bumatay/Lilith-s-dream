@@ -1,17 +1,4 @@
-from adventurelib import *
-import time 
-import random
-
-player_health = 10
-killcount = 0
-pockets = {"Knife": 2, "Sheild": 2, "Apple": 3}
-
-def pause():
-    time.sleep(1)
-
-def inventory():
-    pause()
-    print("\n" + str(list(pockets.keys())))
+from functions import *
 
 def menu(*args):
     global menu_input
@@ -83,6 +70,7 @@ while enemy_health > 0 and player_health > 0:
             player_health += heal
         else:
             print("\nYou heal 3 damage.")
+            player_health += 3
             counter_flag = random.randint(0, aggression)
             if counter_flag == 0:
                 print(f"\n{enemy} does not attack.")
@@ -94,8 +82,10 @@ while enemy_health > 0 and player_health > 0:
         print("how")
 if player_health > 0:
     print("\nYou win!")
+    killcount += 1
 elif player_health <= 0:
-    print("\nYou loose.")
+    print("\nYou lose.")
+    game_over()
+    exit()
 
 start()
-

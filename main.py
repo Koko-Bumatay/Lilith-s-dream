@@ -1,38 +1,4 @@
-from adventurelib import *
-import time
-
-pockets = []
-killcount = 0
-
-def pause():
-    time.sleep(1)
-
-def inventory():
-    pause()
-    print(pockets)
-
-@when ("take THING")
-def take(thing):
-    pockets.append(thing)
-    pause()
-    print(f"\nYou take {thing}.")
-
-def menu(*args):
-    global menu_input
-    pause()
-    print("\ni - inventory")
-    for arg in args:
-        pause()
-        print(f"{arg}")
-    menu_input = input()
-
-def game_start():
-    print("\n************************************************************************************************************")
-
-def game_over():
-    print("\nGAME OVER")
-    game_start()
-    exit()
+from functions import *
 
 game_start()
 
@@ -53,14 +19,14 @@ say(f"""
 """)
 
 pause()
-menu("A- look around", "B- shut your eyes")
+menu_input = menu("A- look around", "B- shut your eyes")
 while menu_input != "A" and menu_input != "B":
     if menu_input == "i":
         inventory()
     else:
         pause()
         print("\nThis is not an option.")
-    menu("A- look around", "B- shut your eyes")
+    menu_input = menu("A- look around", "B- shut your eyes")
 if menu_input == "A":
     pause()
     say("""
@@ -74,14 +40,14 @@ elif menu_input == "B":
         \nYou try to close your eyes, but your eyelids won't close. You are already asleep. 
         The darkness you expect to come stays an expectation. 
     """)
-    menu("A- look around", "B-shut them tighter")
+    menu_input = menu("A- look around", "B- shut them tighter")
     while menu_input != "A" and menu_input != "B":
         if menu_input == "i":
             inventory()
         else:
             pause()
             print("\nThis is not an option.")
-        menu("A- look around", "B- shut your eyes")
+        menu_input = menu("A- look around", "B- shut your eyes")
     if menu_input == "A":
         pause()
         say("""
@@ -100,15 +66,15 @@ elif menu_input == "B":
 else: 
     print("how")
 
-print(f"\nFriend: 'Welcome back, {name}. Back so soon?")
-menu("A- Welcome back? Have we met?", "B- I am still asleep")
+print(f"\nFriend: 'Welcome back, {name}. Back so soon?'")
+menu_input = menu("A- Welcome back? Have we met?", "B- I am still asleep")
 while menu_input != "A" and menu_input != "B":
     if menu_input == "i":
         inventory()
     else:
         pause()
         print("\nThis is not an option.")
-    menu("A- Welcome back? Have we met?", "I am still asleep")
+    menu_input = menu("A- Welcome back? Have we met?", "I am still asleep")
 if menu_input == "A":
     pause()
     say("""
@@ -118,7 +84,7 @@ if menu_input == "A":
     """)
 elif menu_input == "B":
     pause()
-    print("Friend: 'Shame. Better luck next time around.'")
+    print("\nFriend: 'Shame. Better luck next time around.'")
 
 pause()
 say("""
@@ -129,14 +95,14 @@ say("""
     you begin to hear again: footsteps. footsteps you recognize. Not your own. Your father's.
 """)
 
-menu("A- approach", "B- do not approach")
+menu_input = menu("A- approach", "B- do not approach")
 while menu_input != "A" and menu_input != "B":
     if menu_input == "i":
         inventory()
     else:
         pause()
         print("\nThis is not an option.")
-    menu("A- approach", "B- do not approach")
+    menu_input = menu("A- approach", "B- do not approach")
 if menu_input == "A":
     pause()
     say("""
@@ -168,14 +134,14 @@ say("""
     and you recognize it to be your mother.  
 """)
 
-menu("A- attack", "B- approach gently")
+menu_input = menu("A- attack", "B- approach gently")
 while menu_input != "A" and menu_input != "B":
     if menu_input == "i":
         inventory()
     else:
         pause()
         print("\nThis is not an option.")
-    menu("A- attack", "B- approach gently")
+    menu_input = menu("A- attack", "B- approach gently")
 if menu_input == "A":
     pause()
     say("""
@@ -190,16 +156,16 @@ elif menu_input == "B":
         Suddenly, she begins to wither, her skin melting first, revealing a ribcage sheltering a crumbling violet, petals drooping. 
         Eventually, her bones crumble too, leaving only the flower behind.  
     """)
-    menu("A- take flower", "B- leave it")
+    menu_input = menu("A- take flower", "B- leave it")
     while menu_input != "A" and menu_input != "B":
         if menu_input == "i":
             inventory()
         else:
             pause()
             print("\nThis is not an option.")
-        menu("A- take flower", "B- leave it")
+        menu_input = menu("A- take flower", "B- leave it")
     if menu_input == "A":
-        take("Lilith's flower")
+        take("Lilith's flower", 0)
     elif menu_input == "B":
         pause()
         print("You leave it on the ground.")
@@ -216,14 +182,14 @@ say("""
     A fog creeps into your small circle of visibility from the darkness.  
 """)
 
-menu("A- go left", "B- go right")
+menu_input = menu("A- go left", "B- go right")
 while menu_input != "A" and menu_input != "B":
     if menu_input == "i":
         inventory()
     else:
         pause()
         print("\nThis is not an option.")
-    menu("A- go left", "B- go right")
+    menu_input = menu("A- go left", "B- go right")
 if menu_input == "A":
     global path_choice
     path_choice = "left"
@@ -236,14 +202,14 @@ if menu_input == "A":
         this wall of something deeper than black begins to edge forward, almost consuming the bloodied ground in front of you.  
     """)
     
-    menu("A- fight", "B- flight", "C- freeze")
+    menu_input = menu("A- fight", "B- flight", "C- freeze")
     while menu_input != "A" and menu_input != "B" and menu_input != "C":
         if menu_input == "i":
             inventory()
         else:
             pause()
             print("\nThis is not an option.")
-        menu("A- fight", "B- flight", "C- freeze")
+        menu_input = menu("A- fight", "B- flight", "C- freeze")
     if menu_input == "A":
         print("filler")
         #black thing fight
@@ -277,14 +243,14 @@ if menu_input == "A":
         As you stride towards the family, stomping through the blood-puddles, you begin to pause.  
     """)
 
-    menu("A- fight", "B- atone")
+    menu_input = menu("A- fight", "B- atone")
     while menu_input != "A" and menu_input != "B":
         if menu_input == "i":
             inventory()
         else:
             pause()
             print("\nThis is not an option.")
-        menu("A- fight", "B- atone")
+        menu_input = menu("A- fight", "B- atone")
     if menu_input == "A":
         print("filler")
         #fight
@@ -311,14 +277,14 @@ if menu_input == "A":
         have been truly inside you. In your wretched retching, you feel a clammy hand pat at your back.  
     """)
 
-    menu("A- execution", "B- stasis")
+    menu_input = menu("A- execution", "B- stasis")
     while menu_input != "A" and menu_input != "B":
         if menu_input == "i":
             inventory()
         else:
             pause()
             print("\nThis is not an option.")
-        menu("A- execution", "B- stasis")
+        menu_input = menu("A- execution", "B- stasis")
     if menu_input == "A":
         print("filler")
         #self fight
@@ -358,14 +324,14 @@ elif menu_input == "B":
         I advise you break the cycle. You need to wake up.' 
     """)
 
-    menu("A- wake up", "B- stay asleep")
+    menu_input = menu("A- wake up", "B- stay asleep")
     while menu_input != "A" and menu_input != "B":
         if menu_input == "i":
             inventory()
         else:
             pause()
             print("\nThis is not an option.")
-        menu("A- wake up", "B- stay asleep")
+        menu_input = menu("A- wake up", "B- stay asleep")
     if menu_input == "A":
         pause()
         say(f"""
@@ -374,7 +340,7 @@ elif menu_input == "B":
             So, who is {name}?” 
         """)
 
-        menu("A- A good person. No matter how many mistakes I've made, I've still tried my hardest my whole life. I love those that surround me, and I make sure to show them that. I am a good person.", 
+        menu_input = menu("A- A good person. No matter how many mistakes I've made, I've still tried my hardest my whole life. I love those that surround me, and I make sure to show them that. I am a good person.", 
              "B- A flawed person. I try to do the best I can, but inside me lays dormant an anger that can't be contained forever, the scared anger of a wounded animal. I am a flawed person.", 
              "C-  I don't know who I am. I have only lived this life once through, not enough to know every part of myself. Ive made no impact on the world, nothing changes because of my existence. I am nobody at all.")
         while menu_input != "A" and menu_input != "B" and menu_input != "C":
@@ -383,7 +349,7 @@ elif menu_input == "B":
             else:
                 pause()
                 print("\nThis is not an option.")
-            menu("A- A good person. No matter how many mistakes I've made, I've still tried my hardest my whole life. I love those that surround me, and I make sure to show them that. I am a good person.", 
+            menu_input = menu("A- A good person. No matter how many mistakes I've made, I've still tried my hardest my whole life. I love those that surround me, and I make sure to show them that. I am a good person.", 
                  "B- A flawed person. I try to do the best I can, but inside me lays dormant an anger that can't be contained forever, the scared anger of a wounded animal. I am a flawed person.", 
                  "C-  I don't know who I am. I have only lived this life once through, not enough to know every part of myself. Ive made no impact on the world, nothing changes because of my existence. I am nobody at all.")
         if menu_input == "A":
@@ -438,14 +404,14 @@ say("""
     You feel awe overtake you, causing you to pause in your movement.  
 """)
 
-menu("A- stop here", "B- press forward")
+menu_input = menu("A- stop here", "B- press forward")
 while menu_input != "A" and menu_input != "B":
     if menu_input == "i":
         inventory()
     else:
         pause()
         print("\nThis is not an option.")
-    menu("A- stop here", "B- press forward")
+    menu_input = menu("A- stop here", "B- press forward")
 if menu_input == "A":
     pause()
     say("""
