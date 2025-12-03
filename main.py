@@ -2,6 +2,8 @@ from functions import *
 
 game_start()
 
+killcount = 0
+
 print("A voice rings out from the blinding void.\nI hope you're prepared.\n")
 
 pause()
@@ -120,7 +122,7 @@ elif menu_input == "B":
 else:
     print("how")
 
-#fight with father 
+fight("your father", 10, 3, 3)
 
 pause()
 say("""
@@ -145,7 +147,13 @@ while menu_input != "A" and menu_input != "B":
 if menu_input == "A":
     pause()
     say("""
-        \nYou are swift this time. You know how this goes. [fight] You kick your mother's crumpled body aside. 
+        \nYou are swift this time. You know how this goes.
+    """)
+
+    fight("your mother", 8, 1, 3)
+
+    say("""
+        \nYou kick your mother's crumpled body aside. 
         Another piece of your humanity is gone, and the absence is intoxicating. But you remain asleep.
     """)
 elif menu_input == "B":
@@ -211,8 +219,7 @@ if menu_input == "A":
             print("\nThis is not an option.")
         menu_input = menu("A- fight", "B- flight", "C- freeze")
     if menu_input == "A":
-        print("filler")
-        #black thing fight
+        fight("the dark thing", 12, 3, 3)
     elif menu_input == "B":
         pause()
         say("""
@@ -252,8 +259,7 @@ if menu_input == "A":
             print("\nThis is not an option.")
         menu_input = menu("A- fight", "B- atone")
     if menu_input == "A":
-        print("filler")
-        #fight
+        fight("the beast", 12, 10, 3)
     elif menu_input == "B":
         pause()
         say("""
@@ -286,8 +292,7 @@ if menu_input == "A":
             print("\nThis is not an option.")
         menu_input = menu("A- execution", "B- stasis")
     if menu_input == "A":
-        print("filler")
-        #self fight
+        fight("the other you", 15, 4, 3)
     elif menu_input == "B":
         pause()
         say("""
