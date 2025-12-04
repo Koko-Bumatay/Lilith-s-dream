@@ -97,12 +97,8 @@ def fight(enemy, enemy_health, aggression, heal_count):
             print("how")
     if player_health > 0:
         print("\nYou win!")
-        #killcount += 1
+        killcount += 1
         player_health = player_max_health
     elif player_health <= 0:
         print("\nYou lose.")
         game_over()
-        exit()
-
-fight("test", 1, 2, 3)
-start()

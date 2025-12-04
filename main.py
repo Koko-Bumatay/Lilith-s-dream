@@ -304,8 +304,14 @@ if menu_input == "A":
             you find the choice of which mouth to use overwhelming. It takes what feels like years to learn how to walk again, 
             how to process the sensory information flooding your brain. You are asleep. But eventually, 
             you find yourself able to move about how you did before, and you gain a sense of bolstered confidence, 
-            as if you have become stronger. You continue forward, more determined than before.
+            as if you have become stronger.\nYou now have 25 health.\nYour knife's base attack is now 4.
+            \nYour sheild's block is now 4.\nYou now have 5 apples per battle.
+            \nYou continue forward, more determined than before.
         """)
+        pockets["Knife"] = 4
+        pockets["Sheild"] = 4
+        pockets["A bag of apples that only refills at the end of a battle"] = 5
+        player_health = 25
     else:
         print("how")
 elif menu_input == "B":
@@ -372,10 +378,16 @@ elif menu_input == "B":
                 \nFriend: 'Correct. I'm glad that you're finally starting to wake up.' The tendrils once again impale you, 
                 this time through your chest. A searing pain arcs through every vein, liquid fire coursing through you. 
                 When the searing finally subsides, you feel as if the burning had stolen what was left of your humanity. 
-                A bestial roar bubbles up in your chest, and as it escapes you the fog begins to dissipate. You stumble your way to your feet, 
+                A bestial roar bubbles up in your chest, and as it escapes you the fog begins to dissipate.
+                \nYou now have 25 health.\nYour knife's base damage is now 4.\nYour sheild's block is now 4.\nYou now have 5 apples per battle.
+                \nYou stumble your way to your feet, 
                 and see your torch, still flickering on the ground. After picking it up, you continue on the dimly lit path, 
                 slightly more determined than before.
             """)
+            pockets["Knife"] = 4
+            pockets["Sheild"] = 4
+            pockets["A bag of apples that only refills at the end of a battle"] = 5
+            player_health = 25
         elif menu_input == "C":
             pause()
             say("""
@@ -442,8 +454,7 @@ if killcount == 1 and "Lilith's flower" not in pockets:
     """)
     game_over()
 elif killcount >= 0 and killcount <= 4 and "Lilith's flower" in pockets:
-    print("filler")
-    #lilith fight
+    fight("Lilith", 45, 10, 5)
 elif killcount >= 0 and killcount <= 4 and path_choice == "left":
     pause()
     say("""
@@ -466,9 +477,12 @@ elif killcount >= 0 and killcount <= 4 and path_choice == "right":
     """)
     game_over()
 elif killcount >= 4:
-    print("filler")
-    #lilith fight
+    fight("Lilith", 45, 10, 5)
+
+pause()
+print("Conratulations. You finally woke up.")
 
 game_start()
+exit()
 
 start()
