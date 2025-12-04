@@ -122,6 +122,7 @@ def fight(enemy, enemy_health, aggression, heal_count):
             print("how")
     if player_health > 0:
         print("\nYou win!")
+        global killcount
         killcount += 1
         player_health = player_max_health
     elif player_health <= 0:
