@@ -1,4 +1,4 @@
-from functions import *
+from game_functions import *
 
 game_start()
 
@@ -308,10 +308,10 @@ if menu_input == "A":
             \nYour sheild's block is now 4.\nYou now have 5 apples per battle.
             \nYou continue forward, more determined than before.
         """)
-        pockets["Knife"] = 4
-        pockets["Sheild"] = 4
-        pockets["A bag of apples that only refills at the end of a battle"] = 5
-        player_health = 25
+        pockets["Knife"] = 7
+        pockets["Sheild"] = 7
+        pockets["A bag of apples that only refills at the end of a battle"] = 7
+        player_health = 20
     else:
         print("how")
 elif menu_input == "B":
@@ -384,10 +384,10 @@ elif menu_input == "B":
                 and see your torch, still flickering on the ground. After picking it up, you continue on the dimly lit path, 
                 slightly more determined than before.
             """)
-            pockets["Knife"] = 4
-            pockets["Sheild"] = 4
-            pockets["A bag of apples that only refills at the end of a battle"] = 5
-            player_health = 25
+            pockets["Knife"] = 7
+            pockets["Sheild"] = 7
+            pockets["A bag of apples that only refills at the end of a battle"] = 7
+            player_health = 20
         elif menu_input == "C":
             pause()
             say("""
@@ -454,7 +454,7 @@ if killcount == 1 and "Lilith's flower" not in pockets:
     """)
     game_over()
 elif killcount >= 0 and killcount <= 4 and "Lilith's flower" in pockets:
-    fight("Lilith", 45, 10, 5)
+    lilith_fight()
 elif killcount >= 0 and killcount <= 4 and path_choice == "left":
     pause()
     say("""
@@ -477,7 +477,7 @@ elif killcount >= 0 and killcount <= 4 and path_choice == "right":
     """)
     game_over()
 elif killcount >= 4:
-    fight("Lilith", 45, 10, 5)
+    lilith_fight()
 
 pause()
 print("Conratulations. You finally woke up.")

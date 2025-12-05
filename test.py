@@ -1,4 +1,4 @@
-from functions import *
+from game_functions import *
 
 def menu(*args):
     pause()
