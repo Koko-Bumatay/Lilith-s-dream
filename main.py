@@ -20,6 +20,7 @@ say(f"""
     You are asleep. 
 """)
 
+#prints the menu and takes different actions depending on the response
 pause()
 menu_input = menu("A- look around", "B- shut your eyes")
 while menu_input != "A" and menu_input != "B":
@@ -122,6 +123,7 @@ elif menu_input == "B":
 else:
     print("how")
 
+#a fight with "your father" who has 10 health and 3 agression
 fight("your father", 10, 3, 3)
 
 pause()
@@ -164,6 +166,7 @@ elif menu_input == "B":
         Suddenly, she begins to wither, her skin melting first, revealing a ribcage sheltering a crumbling violet, petals drooping. 
         Eventually, her bones crumble too, leaving only the flower behind.  
     """)
+    #adds a lilith key to the inventory
     menu_input = menu("A- take flower", "B- leave it")
     while menu_input != "A" and menu_input != "B":
         if menu_input == "i":
@@ -308,6 +311,7 @@ if menu_input == "A":
             \nYour sheild's block is now 4.\nYou now have 5 apples per battle.
             \nYou continue forward, more determined than before.
         """)
+        #makes items and player stronger
         pockets["Knife"] = 7
         pockets["Sheild"] = 7
         pockets["A bag of apples that only refills at the end of a battle"] = 7
@@ -384,6 +388,7 @@ elif menu_input == "B":
                 and see your torch, still flickering on the ground. After picking it up, you continue on the dimly lit path, 
                 slightly more determined than before.
             """)
+            #makes the items and player stronger
             pockets["Knife"] = 7
             pockets["Sheild"] = 7
             pockets["A bag of apples that only refills at the end of a battle"] = 7
@@ -443,6 +448,7 @@ elif menu_input == "B":
 else:
     print("how")
 
+#ending check based on killcount, path choice, and the presence of the lilith flower
 if killcount == 1 and "Lilith's flower" not in pockets:
     pause()
     say("""
