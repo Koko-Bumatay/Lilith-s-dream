@@ -125,6 +125,7 @@ else:
 
 #a fight with "your father" who has 10 health and 3 agression
 fight("your father", 10, 3, 3)
+killcount += 1
 
 pause()
 say("""
@@ -153,6 +154,7 @@ if menu_input == "A":
     """)
 
     fight("your mother", 8, 1, 3)
+    killcount += 1
 
     say("""
         \nYou kick your mother's crumpled body aside. 
@@ -223,6 +225,7 @@ if menu_input == "A":
         menu_input = menu("A- fight", "B- flight", "C- freeze")
     if menu_input == "A":
         fight("the dark thing", 12, 3, 3)
+        killcount += 1
     elif menu_input == "B":
         pause()
         say("""
@@ -263,6 +266,7 @@ if menu_input == "A":
         menu_input = menu("A- fight", "B- atone")
     if menu_input == "A":
         fight("the beast", 12, 10, 3)
+        killcount += 1
     elif menu_input == "B":
         pause()
         say("""
@@ -296,6 +300,7 @@ if menu_input == "A":
         menu_input = menu("A- execution", "B- stasis")
     if menu_input == "A":
         fight("the other you", 15, 4, 3)
+        killcount += 1
     elif menu_input == "B":
         pause()
         say("""
@@ -315,7 +320,7 @@ if menu_input == "A":
         pockets["Knife"] = 7
         pockets["Sheild"] = 7
         pockets["A bag of apples that only refills at the end of a battle"] = 7
-        player_health = 20
+        player_health = 25
     else:
         print("how")
 elif menu_input == "B":
@@ -392,7 +397,7 @@ elif menu_input == "B":
             pockets["Knife"] = 7
             pockets["Sheild"] = 7
             pockets["A bag of apples that only refills at the end of a battle"] = 7
-            player_health = 20
+            player_health = 25
         elif menu_input == "C":
             pause()
             say("""

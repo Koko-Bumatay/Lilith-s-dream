@@ -148,6 +148,7 @@ def fight(enemy, enemy_health, aggression, heal_count):
 #final boss fight sequence
 def lilith_fight():
     global player_health
+    player_health = 25
     global player_max_health
     player_max_health = player_health
     global enemy_max_health
@@ -209,6 +210,7 @@ def lilith_fight():
                 print("how")
         elif menu_input == "C":
             global heal
+            heal = 7
             pause()
             #checks if heals remain
             if heal_count == 0:
